@@ -10,6 +10,49 @@
 <meta property="og:title" content="Systems in Depth">
 <meta property="og:description" content="고객 현장 배포, SI, DevOps를 맡아 온 Forward Deployed Engineer의 3D 포트폴리오">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' fill='%230A1B2E'/%3E%3Cpath d='M12 2.5 20.5 7.3v9.4L12 21.5l-8.5-4.8V7.3Z M12 12l8.5-4.7 M12 12 3.5 7.3 M12 12v9.5' fill='none' stroke='%23FF6B5A' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E">
+<script>
+/* theme store: presets + saved choice, applied before first paint */
+(function(){
+  var P={
+    blueprint:{ko:'청사진',en:'Blueprint',
+      dark:{bg:'#0A1B2E',panel:'#0F2742',fg:'#E7EEF5',muted:'#93AAC2',line:'#24476B',ink:'#9CC7EE',accent:'#FF6B5A'},
+      light:{bg:'#EDF1F4',panel:'#E1E8EE',fg:'#0D2440',muted:'#4B6380',line:'#B4C5D5',ink:'#1E4F86',accent:'#C9362C'}},
+    graphite:{ko:'흑연',en:'Graphite',
+      dark:{bg:'#151618',panel:'#1E2023',fg:'#ECE9E3',muted:'#A39D93',line:'#36383C',ink:'#CFC8BC',accent:'#F2A541'},
+      light:{bg:'#F1EFEA',panel:'#E5E2DA',fg:'#1B1C1F',muted:'#5F5A52',line:'#CCC6BA',ink:'#3E3A34',accent:'#9A5B00'}},
+    oxide:{ko:'산화 구리',en:'Oxide',
+      dark:{bg:'#0D1A19',panel:'#132523',fg:'#E5EFED',muted:'#8DADA8',line:'#23403D',ink:'#8ED3C6',accent:'#FF8A3D'},
+      light:{bg:'#EDF3F1',panel:'#DFE9E6',fg:'#0F2523',muted:'#48645F',line:'#B3C9C4',ink:'#1C6A5F',accent:'#B04512'}},
+    midnight:{ko:'자정',en:'Midnight',
+      dark:{bg:'#110E1E',panel:'#1A1630',fg:'#ECE8F6',muted:'#A29CBD',line:'#312B52',ink:'#B6A7F4',accent:'#6EE7B7'},
+      light:{bg:'#F3F1F8',panel:'#E6E2F0',fg:'#1B1630',muted:'#5D5777',line:'#C9C2DC',ink:'#4A3AA6',accent:'#0B7A5A'}},
+    signal:{ko:'신호',en:'Signal',
+      dark:{bg:'#0B0B0C',panel:'#161618',fg:'#F4F4F1',muted:'#9D9D98',line:'#2D2D30',ink:'#DADAD4',accent:'#FFD400'},
+      light:{bg:'#F6F6F2',panel:'#EAEAE4',fg:'#0B0B0C',muted:'#5B5B57',line:'#CFCFC7',ink:'#2A2A28',accent:'#8C6E00'}}
+  };
+  var KEY='sid-theme',HEX=/^#[0-9a-f]{6}$/i;
+  var mq=window.matchMedia?window.matchMedia('(prefers-color-scheme: dark)'):null;
+  function norm(v){v=v&&typeof v==='object'?v:{};return{
+    mode:v.mode==='dark'||v.mode==='light'?v.mode:'system',
+    preset:Object.prototype.hasOwnProperty.call(P,v.preset)?v.preset:'blueprint',
+    accent:HEX.test(v.accent||'')?v.accent:null,ink:HEX.test(v.ink||'')?v.ink:null};}
+  function resolved(st){return st.mode!=='system'?st.mode:(!mq||mq.matches?'dark':'light');}
+  function apply(st){
+    var r=document.documentElement,m=resolved(st),t=P[st.preset][m],k;
+    if(st.mode==='system')r.removeAttribute('data-theme');else r.setAttribute('data-theme',st.mode);
+    for(k in t)r.style.setProperty('--'+k,t[k]);
+    r.style.setProperty('--accent',st.accent||t.accent);
+    r.style.setProperty('--ink',st.ink||t.ink);
+    var meta=document.querySelector('meta[name="theme-color"]');if(meta)meta.setAttribute('content',t.bg);
+  }
+  var saved=null;try{saved=JSON.parse(localStorage.getItem(KEY)||'null');}catch(e){}
+  var T=window.SIDTheme={presets:P,state:norm(saved),norm:norm,onChange:null,
+    resolved:function(){return resolved(T.state);},
+    apply:function(){apply(T.state);},
+    save:function(){try{localStorage.setItem(KEY,JSON.stringify(T.state));}catch(e){}}};
+  T.apply();
+})();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap">
@@ -269,6 +312,58 @@ body.has-cursor,body.has-cursor *{cursor:none!important}
 .avail p{margin:0;color:var(--muted);font-size:14.5px}
 .avail .mono{color:var(--accent)}
 
+
+/* ---------- palette (floating) ---------- */
+.pal{position:fixed;z-index:9;left:calc(var(--frame) + 28px + env(safe-area-inset-left,0px));bottom:calc(var(--frame) + 24px + env(safe-area-inset-bottom,0px));perspective:900px}
+.pal-fab{display:grid;place-items:center;width:52px;height:52px;border:1px solid var(--line);background:color-mix(in srgb,var(--bg) 88%,transparent);transition:border-color .2s}
+.pal-fab:hover,.pal-fab[aria-expanded="true"]{border-color:var(--accent)}
+.pal-sw{display:grid;grid-template-columns:1fr 1fr;gap:3px;width:24px;height:24px;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.pal-sw i{display:block;border:1px solid color-mix(in srgb,var(--fg) 35%,transparent)}
+.pal-sw i:nth-child(1){background:var(--bg)}
+.pal-sw i:nth-child(2){background:var(--ink)}
+.pal-sw i:nth-child(3){background:var(--fg)}
+.pal-sw i:nth-child(4){background:var(--accent)}
+.pal-fab:hover .pal-sw{transform:rotate(90deg)}
+.pal-fab[aria-expanded="true"] .pal-sw{transform:rotate(45deg) scale(.9)}
+.pal-panel{position:absolute;left:0;bottom:calc(100% + 12px);width:min(300px,calc(100vw - 40px));max-height:calc(var(--vh) - 140px);overflow:auto;overscroll-behavior:contain;
+  border:1px solid var(--line);background:color-mix(in srgb,var(--bg) 95%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  transform-origin:0 100%;transform:rotateX(-82deg) translateZ(-30px);opacity:0;visibility:hidden;
+  transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .3s,visibility 0s .5s}
+.pal[data-open] .pal-panel{transform:none;opacity:1;visibility:visible;transition:transform .55s cubic-bezier(.2,.8,.2,1),opacity .25s,visibility 0s}
+.rm .pal-panel,.rm .pal[data-open] .pal-panel{transform:none;transition:opacity .15s,visibility 0s .15s}
+.rm .pal[data-open] .pal-panel{transition:opacity .15s,visibility 0s}
+.pal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 8px 9px 14px;border-bottom:1px solid var(--line)}
+.pal-title{margin:0;font:800 16px/1 var(--display);letter-spacing:.08em;text-transform:uppercase}
+.pal-title span{margin-left:8px;font:500 12.5px/1 var(--body);letter-spacing:0;text-transform:none;color:var(--muted)}
+.pal-x{display:grid;place-items:center;width:30px;height:30px;color:var(--muted);transition:color .2s}
+.pal-x:hover{color:var(--fg)}
+.pal-x svg{width:14px;height:14px}
+.pal-sec{display:grid;gap:8px;padding:12px 14px;border-bottom:1px solid var(--line)}
+.pal-lbl{margin:0;color:var(--muted);font-size:10px}
+.pal-seg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--line)}
+.pal-seg button{padding:8px 0;text-align:center;font-size:13.5px;color:var(--muted);transition:color .2s,background-color .2s}
+.pal-seg button+button{border-left:1px solid var(--line)}
+.pal-seg button:hover{color:var(--fg)}
+.pal-seg button[aria-checked="true"]{color:var(--bg);background:var(--fg)}
+.pal-presets{display:grid;gap:3px}
+.pal-pre{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:12px;padding:7px 8px;border:1px solid transparent;transition:border-color .2s,background-color .2s}
+.pal-pre:hover{background:color-mix(in srgb,var(--panel) 75%,transparent)}
+.pal-pre[aria-checked="true"]{border-color:var(--accent);background:color-mix(in srgb,var(--panel) 90%,transparent)}
+.pal-strip{display:flex;height:22px;border:1px solid color-mix(in srgb,var(--fg) 25%,transparent)}
+.pal-strip i{display:block;width:11px}
+.pal-strip i:first-child{width:24px}
+.pal-name{font-size:14px;font-weight:500}
+.pal-en{color:var(--muted);font-size:9.5px}
+.pal-pick{display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:10px;font-size:14px;cursor:pointer}
+.pal-hex{color:var(--muted);font-size:10.5px;letter-spacing:.06em;font-variant-numeric:tabular-nums}
+.pal-pick input{width:44px;height:26px;padding:0;border:1px solid var(--line);background:none;cursor:pointer}
+.pal-pick input::-webkit-color-swatch-wrapper{padding:2px}
+.pal-pick input::-webkit-color-swatch{border:0}
+.pal-pick input::-moz-color-swatch{border:0}
+.pal-note{margin:0;color:var(--muted);font-size:12px;line-height:1.5}
+.pal-reset{display:block;width:100%;padding:11px 14px;text-align:left;color:var(--muted);font-size:10px;transition:color .2s}
+.pal-reset:hover{color:var(--accent)}
+
 /* ---------- overscroll pull ---------- */
 .pull{position:fixed;z-index:7;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;pointer-events:none;opacity:0;transition:opacity .25s;
   bottom:calc(var(--frame) + 28px + env(safe-area-inset-bottom,0px));padding:10px 14px;background:color-mix(in srgb,var(--bg) 85%,transparent);border:1px solid var(--line)}
@@ -309,6 +404,8 @@ body.has-cursor,body.has-cursor *{cursor:none!important}
   .brand-t{display:none}
   .tabs button{padding:6px 8px;font-size:13px}
   .hero,.contact{padding-top:calc(var(--frame) + 84px + env(safe-area-inset-top,0px))}
+  .pal{left:calc(var(--frame) + 10px + env(safe-area-inset-left,0px));bottom:calc(var(--frame) + 14px + env(safe-area-inset-bottom,0px))}
+  .pal-fab{width:46px;height:46px}
   .head-float{padding-top:calc(var(--frame) + 76px + env(safe-area-inset-top,0px))}
 }
 @media (max-width:400px){ .tabs button .n{display:none} }
@@ -692,6 +789,35 @@ body.has-cursor,body.has-cursor *{cursor:none!important}
 
 <div class="pull mono" id="pull" aria-hidden="true"><span id="pull-t">계속 내리면 다음 시트</span><span class="pull-bar"><i id="pull-i"></i></span></div>
 
+<div class="pal" id="pal">
+  <div class="pal-panel" id="pal-panel" role="dialog" aria-labelledby="pal-h">
+    <div class="pal-head">
+      <p class="pal-title" id="pal-h">Palette<span>색상 테마</span></p>
+      <button type="button" class="pal-x" id="pal-x" aria-label="닫기" data-cursor="CLOSE"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M1 1l12 12M13 1 1 13" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></button>
+    </div>
+    <div class="pal-sec">
+      <p class="pal-lbl mono" id="pal-mode-l">Mode · 모드</p>
+      <div class="pal-seg" id="pal-mode" role="radiogroup" aria-labelledby="pal-mode-l">
+        <button type="button" role="radio" data-mode="dark" data-cursor="DARK">다크</button>
+        <button type="button" role="radio" data-mode="light" data-cursor="LIGHT">라이트</button>
+        <button type="button" role="radio" data-mode="system" data-cursor="AUTO">시스템</button>
+      </div>
+    </div>
+    <div class="pal-sec">
+      <p class="pal-lbl mono" id="pal-pre-l">Preset · 프리셋</p>
+      <div class="pal-presets" id="pal-presets" role="radiogroup" aria-labelledby="pal-pre-l"></div>
+    </div>
+    <div class="pal-sec">
+      <p class="pal-lbl mono">Custom · 직접 지정</p>
+      <label class="pal-pick" for="pal-accent" data-cursor="PICK"><span>포인트</span><span class="pal-hex mono" id="pal-accent-hex"></span><input type="color" id="pal-accent" value="#ff6b5a"></label>
+      <label class="pal-pick" for="pal-ink" data-cursor="PICK"><span>선 · 입자</span><span class="pal-hex mono" id="pal-ink-hex"></span><input type="color" id="pal-ink" value="#9cc7ee"></label>
+      <p class="pal-note">프리셋을 고르면 직접 지정한 색은 초기화됩니다. 선택은 이 브라우저에 저장됩니다.</p>
+    </div>
+    <button type="button" class="pal-reset mono" id="pal-reset" data-cursor="RESET">Reset · 기본값으로</button>
+  </div>
+  <button type="button" class="pal-fab" id="pal-fab" aria-expanded="false" aria-controls="pal-panel" aria-label="색상 테마 변경" data-cursor="COLOR"><span class="pal-sw" aria-hidden="true"><i></i><i></i><i></i><i></i></span></button>
+</div>
+
 <div class="cur" aria-hidden="true"><div class="cur-ring"><span class="cur-label"></span></div><div class="cur-dot"></div></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -994,7 +1120,7 @@ if(!GL.ok) body.classList.add('no-gl');
 
 /* ================= theme ================= */
 function applyTheme(){TK=tokens();FG=hex2rgb(TK.fg);AC=hex2rgb(TK.accent);GL.theme(TK);chars.forEach(c=>{c.lf=-1;});}
-onMQ(matchMedia('(prefers-color-scheme: dark)'),applyTheme);
+onMQ(matchMedia('(prefers-color-scheme: dark)'),()=>{const T=window.SIDTheme;if(T&&T.state.mode==='system'){T.apply();if(T.onChange)T.onChange();}applyTheme();});
 new MutationObserver(applyTheme).observe(root,{attributes:true,attributeFilter:['data-theme']});
 
 /* ================= 01 · hero chars ================= */
@@ -1099,7 +1225,7 @@ if(!mqFine.matches){$('#hint').textContent='화면을 터치하면 입자 충격
 
 /* ================= input ================= */
 addEventListener('pointermove',e=>{M.acc+=Math.hypot(e.clientX-M.x,e.clientY-M.y);M.x=e.clientX;M.y=e.clientY;M.last=S.t;M.inside=true;M.mouse=e.pointerType==='mouse';},{passive:true});
-addEventListener('pointerdown',e=>{M.x=e.clientX;M.y=e.clientY;M.last=S.t;M.inside=true;M.mouse=e.pointerType==='mouse';cur.classList.add('down');GL.shock(e.clientX,e.clientY);},{passive:true});
+addEventListener('pointerdown',e=>{M.x=e.clientX;M.y=e.clientY;M.last=S.t;M.inside=true;M.mouse=e.pointerType==='mouse';cur.classList.add('down');if(!(e.target&&e.target.closest&&e.target.closest('.pal')))GL.shock(e.clientX,e.clientY);},{passive:true});
 addEventListener('pointerup',()=>cur.classList.remove('down'));
 root.addEventListener('mouseleave',()=>{M.inside=false;});
 addEventListener('blur',()=>{M.inside=false;});
@@ -1328,6 +1454,60 @@ function loop(now){
 
   if(GL.ok)GL.frame(dt,S.t,glConfig(),{nx:M.nx,ny:M.ny,sx:M.sx,sy:M.sy,x:M.x,y:M.y,active:M.active,speed:M.speed});
 }
+
+/* ================= palette ================= */
+(function(){
+  const T=window.SIDTheme,pal=$('#pal');
+  if(!T){pal.hidden=true;return;}
+  const fab=$('#pal-fab'),panel=$('#pal-panel'),closeB=$('#pal-x'),modeBox=$('#pal-mode'),preBox=$('#pal-presets');
+  const inA=$('#pal-accent'),inI=$('#pal-ink'),hexA=$('#pal-accent-hex'),hexI=$('#pal-ink-hex');
+  const modeBtns=$$('button',modeBox);
+  const preBtns=Object.keys(T.presets).map(id=>{
+    const p=T.presets[id],b=document.createElement('button');
+    b.type='button';b.className='pal-pre';b.setAttribute('role','radio');b.dataset.preset=id;b.dataset.cursor='SET';
+    b.innerHTML='<span class="pal-strip" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="pal-name"></span><span class="pal-en mono"></span>';
+    $('.pal-name',b).textContent=p.ko;$('.pal-en',b).textContent=p.en;
+    preBox.appendChild(b);return b;
+  });
+  function radios(btns,on){btns.forEach(b=>{const v=on(b);b.setAttribute('aria-checked',v?'true':'false');b.tabIndex=v?0:-1;});}
+  function sync(){
+    const st=T.state,m=T.resolved(),tk=T.presets[st.preset][m];
+    radios(modeBtns,b=>b.dataset.mode===st.mode);
+    radios(preBtns,b=>b.dataset.preset===st.preset);
+    preBtns.forEach(b=>{const t=T.presets[b.dataset.preset][m];$$('i',b).forEach((el,i)=>{el.style.background=[t.bg,t.ink,t.fg,t.accent][i];});});
+    const a=(st.accent||tk.accent).toLowerCase(),k=(st.ink||tk.ink).toLowerCase();
+    if(inA.value!==a)inA.value=a;if(inI.value!==k)inI.value=k;
+    hexA.textContent=a.toUpperCase();hexI.textContent=k.toUpperCase();
+  }
+  function commit(){T.apply();T.save();applyTheme();sync();}
+  T.onChange=sync;
+  modeBtns.forEach(b=>b.addEventListener('click',()=>{T.state.mode=b.dataset.mode;commit();}));
+  preBtns.forEach(b=>b.addEventListener('click',()=>{T.state.preset=b.dataset.preset;T.state.accent=null;T.state.ink=null;commit();}));
+  inA.addEventListener('input',()=>{T.state.accent=inA.value;commit();});
+  inI.addEventListener('input',()=>{T.state.ink=inI.value;commit();});
+  $('#pal-reset').addEventListener('click',()=>{T.state=T.norm(null);commit();});
+  // arrow keys move within each radio group
+  [[modeBox,modeBtns],[preBox,preBtns]].forEach(([box,btns])=>box.addEventListener('keydown',e=>{
+    const d={ArrowRight:1,ArrowDown:1,ArrowLeft:-1,ArrowUp:-1}[e.key];if(!d)return;
+    e.preventDefault();e.stopPropagation();
+    const i=(btns.indexOf(document.activeElement)+d+btns.length)%btns.length;btns[i].focus();btns[i].click();
+  }));
+  let open=false;
+  function setOpen(v,moveFocus){
+    open=v;
+    if(v)pal.setAttribute('data-open','');else pal.removeAttribute('data-open');
+    fab.setAttribute('aria-expanded',v?'true':'false');
+    panel.setAttribute('aria-hidden',v?'false':'true');panel.inert=!v;
+    if(v){sync();if(moveFocus){const c=$('.pal-pre[aria-checked="true"]',panel)||closeB;setTimeout(()=>{try{c.focus({preventScroll:true});}catch(_){}} ,40);}}
+    else if(moveFocus){try{fab.focus({preventScroll:true});}catch(_){}}
+  }
+  setOpen(false,false);
+  fab.addEventListener('click',()=>setOpen(!open,true));
+  closeB.addEventListener('click',()=>setOpen(false,true));
+  addEventListener('keydown',e=>{if(e.key==='Escape'&&open)setOpen(false,true);});
+  document.addEventListener('pointerdown',e=>{if(open&&!pal.contains(e.target))setOpen(false,false);},true);
+  sync();
+})();
 
 /* ================= boot ================= */
 let start=(location.hash||'').slice(1);if(!ORDER.includes(start))start='index';
