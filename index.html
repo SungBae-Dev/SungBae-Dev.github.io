@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Systems in Depth</title>
-<meta name="description" content="공공 전자정부, 의료 SI, 블록체인, 리눅스 인프라를 다뤄 온 백엔드·풀스택 엔지니어의 3D 포트폴리오">
+<meta name="description" content="고객 현장 배포, SI, DevOps를 맡아 온 Forward Deployed Engineer의 3D 포트폴리오">
 <meta name="theme-color" content="#0A1B2E">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Systems in Depth">
-<meta property="og:description" content="공공 전자정부, 의료 SI, 블록체인, 리눅스 인프라를 다뤄 온 백엔드·풀스택 엔지니어의 3D 포트폴리오">
+<meta property="og:description" content="고객 현장 배포, SI, DevOps를 맡아 온 Forward Deployed Engineer의 3D 포트폴리오">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' fill='%230A1B2E'/%3E%3Cpath d='M12 2.5 20.5 7.3v9.4L12 21.5l-8.5-4.8V7.3Z M12 12l8.5-4.7 M12 12 3.5 7.3 M12 12v9.5' fill='none' stroke='%23FF6B5A' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -130,6 +130,9 @@ body.has-cursor,body.has-cursor *{cursor:none!important}
 .eyebrow{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:0 0 18px;color:var(--muted)}
 .rev{color:var(--accent);border:1px solid currentColor;padding:3px 6px 2px}
 .lede{max-width:34em;margin:24px 0 0;font-size:clamp(16px,1.3vw,18.5px);line-height:1.7;text-wrap:pretty}
+.role{margin:30px 0 0;font-size:13px;letter-spacing:.18em;color:var(--accent)}
+.role span{color:var(--fg)}
+.role+.lede{margin-top:12px}
 .h-display{margin:0;font:900 clamp(60px,9vw,132px)/.86 var(--display);text-transform:uppercase;letter-spacing:.005em;text-wrap:balance}
 .o-text{color:transparent;-webkit-text-stroke:1.2px var(--fg)}
 .sec-label{margin:0 0 16px;color:var(--muted)}
@@ -355,7 +358,8 @@ body.has-cursor,body.has-cursor *{cursor:none!important}
           <span class="line solid" data-split>Systems</span>
           <span class="line outline" data-split>In Depth</span>
         </h1>
-        <p class="lede">공공 전자정부부터 의료 SI, 블록체인, 리눅스 인프라까지. 화면 아래에서 돌아가는 층을 7년 넘게 설계하고 직접 운영해 온 백엔드·풀스택 엔지니어입니다.</p>
+        <p class="role mono">Forward Deployed Engineer <span>· SI · DevOps</span></p>
+        <p class="lede">고객 현장에 들어가 시스템을 설치하고, 기존 시스템과 연동하고, 운영까지 책임집니다. 공공기관 폐쇄망과 대형 병원 현장에서 7년 넘게 전자정부 · 의료 SI를 개발하고 운영해 온 백엔드 · 풀스택 엔지니어입니다.</p>
         <div class="actions">
           <button class="btn primary" type="button" data-go="work" data-magnetic data-cursor="GO">
             <span>작업 도면 보기</span>
@@ -370,10 +374,10 @@ body.has-cursor,body.has-cursor *{cursor:none!important}
         <h2 class="sec-label mono" id="spec-h">Spec · 사양표</h2>
         <div class="spec-table" role="table" aria-label="사양표">
           <div class="spec-row head mono" role="row"><span role="columnheader">Item</span><span role="columnheader">Value</span><span role="columnheader">Note</span></div>
-          <div class="spec-row" role="row" data-rise="row"><span class="k" role="cell">경력</span><span class="v" role="cell">7<small>+ YRS</small></span><span class="note" role="cell">백엔드 · 풀스택, 이전 회사들에서 CTO급 기술 총괄</span></div>
-          <div class="spec-row" role="row" data-rise="row"><span class="k" role="cell">주력 도메인</span><span class="v" role="cell">04</span><span class="note" role="cell">공공 전자정부 · 의료 SI · 블록체인 · 리눅스 인프라</span></div>
-          <div class="spec-row" role="row" data-rise="row"><span class="k" role="cell">운영 OS</span><span class="v" role="cell">03</span><span class="note" role="cell">CentOS · Rocky Linux · Ubuntu 서버 직접 운영</span></div>
-          <div class="spec-row" role="row" data-rise="row"><span class="k" role="cell">주 언어</span><span class="v" role="cell">06</span><span class="note" role="cell">PHP · Java · JavaScript · Python · Solidity · SQL</span></div>
+          <div class="spec-row" role="row" data-rise="row"><span class="k" role="cell">경력</span><span class="v" role="cell">7<small>+ YRS</small></span><span class="note" role="cell">공공 · 의료 SI 개발과 현장 운영, 이전 회사들에서 CTO급 기술 총괄</span></div>
+          <div class="spec-row" role="row" data-rise="row"><span class="k" role="cell">배포 현장</span><span class="v" role="cell">03</span><span class="note" role="cell">공공기관 폐쇄망 · 병원 내부망 · 온프레미스 리눅스 서버</span></div>
+          <div class="spec-row" role="row" data-rise="row"><span class="k" role="cell">운영 OS</span><span class="v" role="cell">03</span><span class="note" role="cell">CentOS · Rocky Linux · Ubuntu 서버 구축과 운영</span></div>
+          <div class="spec-row" role="row" data-rise="row"><span class="k" role="cell">담당 범위</span><span class="v" role="cell">E2E</span><span class="note" role="cell">요구사항 정리 → 설계 → 현장 설치 → 연동 → 운영 · 장애 대응</span></div>
         </div>
       </section>
 
@@ -399,8 +403,8 @@ body.has-cursor,body.has-cursor *{cursor:none!important}
           <article class="card" data-tilt-host data-rise="card" data-cursor="TILT">
             <div class="tilt" data-tilt>
               <span class="card-no mono">Note 3</span>
-              <h3>체인을 인프라로 다룹니다</h3>
-              <p>노드 업그레이드부터 온체인 자금 추적까지, 블록체인을 운영자 관점에서 봅니다.</p>
+              <h3>현장 요구를 명세로 바꿉니다</h3>
+              <p>기관 담당자와 병원 실무자의 요구를 기술 명세로 정리하고, EPKI 연동과 개인정보 영향평가 같은 보안 요건까지 함께 맞춥니다.</p>
               <span class="glare" aria-hidden="true"></span>
             </div>
           </article>
@@ -445,7 +449,7 @@ body.has-cursor,body.has-cursor *{cursor:none!important}
                     <li>폐쇄망 반입 절차에 맞춘 오프라인 배포 패키지</li>
                     <li>EPKI 기반 기관 인증 연동</li>
                     <li>개인정보 영향평가에 대응하는 설계</li>
-                    <li>노후 그누보드 커스터마이징 정리와 이전</li>
+                    <li>요구사항 정리와 납품 산출물 작성</li>
                   </ul>
                 </div>
               </div>
@@ -459,7 +463,7 @@ body.has-cursor,body.has-cursor *{cursor:none!important}
                   <div class="pc-top mono"><span class="code">MED-02</span><span>2 / 6</span></div>
                   <p class="pc-domain">의료 · SI</p>
                   <h3>병원 의료 정보 시스템</h3>
-                  <p class="pc-desc">대형 병원에 납품되는 의료 SI 시스템을 개발했습니다. 진료가 멈추면 안 되는 환경이라 안정성과 데이터 정합성을 먼저 설계합니다.</p>
+                  <p class="pc-desc">대형 병원에 납품되는 의료 SI 시스템을 개발하고 병원 현장에 배포했습니다. 진료가 멈추면 안 되는 환경이라 안정성과 데이터 정합성을 먼저 설계합니다.</p>
                   <ul class="chips"><li>Java</li><li>Spring</li><li>MySQL</li><li>Linux</li></ul>
                   <div class="pc-foot mono"><span>Click to flip</span><span>Z 1000</span></div>
                   <span class="glare" aria-hidden="true"></span>
@@ -478,20 +482,72 @@ body.has-cursor,body.has-cursor *{cursor:none!important}
             </div>
           </article>
 
-          <article class="pcard" tabindex="0" role="button" aria-pressed="false" aria-label="BTC-03 Bitcoin Core 업그레이드, 눌러서 뒤집기">
+          <article class="pcard" tabindex="0" role="button" aria-pressed="false" aria-label="OPS-03 리눅스 서버 구축과 운영, 눌러서 뒤집기">
             <div class="pcard-tilt" data-tilt data-cursor="FLIP">
               <div class="pcard-flip">
                 <div class="face front">
-                  <div class="pc-top mono"><span class="code">BTC-03</span><span>3 / 6</span></div>
-                  <p class="pc-domain">블록체인 · 노드</p>
-                  <h3>Bitcoin Core 업그레이드</h3>
-                  <p class="pc-desc">Bitcoin Core 기반 체인의 노드 업그레이드를 맡았습니다. 합의 규칙에 닿는 작업이라 테스트넷 검증과 롤백 경로부터 준비합니다.</p>
-                  <ul class="chips"><li>C++</li><li>Bitcoin Core</li><li>Linux</li></ul>
+                  <div class="pc-top mono"><span class="code">OPS-03</span><span>3 / 6</span></div>
+                  <p class="pc-domain">DevOps · 인프라</p>
+                  <h3>리눅스 서버 구축 · 운영</h3>
+                  <p class="pc-desc">CentOS · Rocky Linux · Ubuntu 서버와 Apache · MariaDB 스택을 직접 구축하고 운영합니다. 배포, 백업, 장애 대응까지 운영 전 과정을 맡습니다.</p>
+                  <ul class="chips"><li>Linux</li><li>Rocky Linux</li><li>Ubuntu</li><li>Apache</li><li>MariaDB</li></ul>
                   <div class="pc-foot mono"><span>Click to flip</span><span>Z 2000</span></div>
                   <span class="glare" aria-hidden="true"></span>
                 </div>
                 <div class="face back">
-                  <div class="pc-top mono"><span class="code">BTC-03</span><span>Reverse</span></div>
+                  <div class="pc-top mono"><span class="code">OPS-03</span><span>Reverse</span></div>
+                  <h4>핵심 과제</h4>
+                  <ul>
+                    <li>서버 구축과 보안 설정</li>
+                    <li>DB 백업 · 복구 체계</li>
+                    <li>무중단 배포 절차</li>
+                    <li>장애 원인 분석과 재발 방지</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="pcard" tabindex="0" role="button" aria-pressed="false" aria-label="LEG-04 레거시 시스템 이전, 눌러서 뒤집기">
+            <div class="pcard-tilt" data-tilt data-cursor="FLIP">
+              <div class="pcard-flip">
+                <div class="face front">
+                  <div class="pc-top mono"><span class="code">LEG-04</span><span>4 / 6</span></div>
+                  <p class="pc-domain">SI · 레거시 현대화</p>
+                  <h3>레거시 시스템 이전</h3>
+                  <p class="pc-desc">운영 중인 노후 PHP · 그누보드 시스템을 서비스를 멈추지 않고 새 OS와 DB 버전으로 옮깁니다. 이전 전후 데이터가 같은지 검증하는 것까지가 작업입니다.</p>
+                  <ul class="chips"><li>PHP</li><li>Gnuboard</li><li>MariaDB</li><li>CentOS</li><li>Rocky Linux</li></ul>
+                  <div class="pc-foot mono"><span>Click to flip</span><span>Z 3000</span></div>
+                  <span class="glare" aria-hidden="true"></span>
+                </div>
+                <div class="face back">
+                  <div class="pc-top mono"><span class="code">LEG-04</span><span>Reverse</span></div>
+                  <h4>핵심 과제</h4>
+                  <ul>
+                    <li>현행 시스템 분석과 의존성 정리</li>
+                    <li>단계별 이전 계획과 일정 조율</li>
+                    <li>데이터 이관과 정합성 검증</li>
+                    <li>롤백 경로 확보</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="pcard" tabindex="0" role="button" aria-pressed="false" aria-label="BTC-05 Bitcoin Core 노드 업그레이드, 눌러서 뒤집기">
+            <div class="pcard-tilt" data-tilt data-cursor="FLIP">
+              <div class="pcard-flip">
+                <div class="face front">
+                  <div class="pc-top mono"><span class="code">BTC-05</span><span>5 / 6</span></div>
+                  <p class="pc-domain">블록체인 · 노드 운영</p>
+                  <h3>Bitcoin Core 노드 업그레이드</h3>
+                  <p class="pc-desc">Bitcoin Core 기반 체인의 노드 업그레이드와 운영을 맡았습니다. 합의 규칙에 닿는 작업이라 테스트넷 검증과 롤백 경로부터 준비합니다.</p>
+                  <ul class="chips"><li>C++</li><li>Bitcoin Core</li><li>Linux</li></ul>
+                  <div class="pc-foot mono"><span>Click to flip</span><span>Z 4000</span></div>
+                  <span class="glare" aria-hidden="true"></span>
+                </div>
+                <div class="face back">
+                  <div class="pc-top mono"><span class="code">BTC-05</span><span>Reverse</span></div>
                   <h4>핵심 과제</h4>
                   <ul>
                     <li>업스트림 변경점 분석과 병합</li>
@@ -504,78 +560,26 @@ body.has-cursor,body.has-cursor *{cursor:none!important}
             </div>
           </article>
 
-          <article class="pcard" tabindex="0" role="button" aria-pressed="false" aria-label="FOR-04 온체인 포렌식 분석, 눌러서 뒤집기">
+          <article class="pcard" tabindex="0" role="button" aria-pressed="false" aria-label="W3-06 온체인 분석과 스마트 컨트랙트, 눌러서 뒤집기">
             <div class="pcard-tilt" data-tilt data-cursor="FLIP">
               <div class="pcard-flip">
                 <div class="face front">
-                  <div class="pc-top mono"><span class="code">FOR-04</span><span>4 / 6</span></div>
-                  <p class="pc-domain">블록체인 · 포렌식</p>
-                  <h3>온체인 포렌식 분석</h3>
-                  <p class="pc-desc">트랜잭션 그래프를 따라 자금 흐름을 추적하고, 결과를 비개발자도 읽을 수 있는 보고서로 정리합니다.</p>
-                  <ul class="chips"><li>Python</li><li>Node.js</li><li>Web3</li></ul>
-                  <div class="pc-foot mono"><span>Click to flip</span><span>Z 3000</span></div>
-                  <span class="glare" aria-hidden="true"></span>
-                </div>
-                <div class="face back">
-                  <div class="pc-top mono"><span class="code">FOR-04</span><span>Reverse</span></div>
-                  <h4>핵심 과제</h4>
-                  <ul>
-                    <li>주소 군집화와 자금 흐름 추적</li>
-                    <li>거래소 입출금 경로 식별</li>
-                    <li>흐름도 시각화</li>
-                    <li>제3자가 검증할 수 있는 근거 자료 정리</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article class="pcard" tabindex="0" role="button" aria-pressed="false" aria-label="W3-05 NFT, Ordinals, Solidity, 눌러서 뒤집기">
-            <div class="pcard-tilt" data-tilt data-cursor="FLIP">
-              <div class="pcard-flip">
-                <div class="face front">
-                  <div class="pc-top mono"><span class="code">W3-05</span><span>5 / 6</span></div>
-                  <p class="pc-domain">Web3 · 스마트 컨트랙트</p>
-                  <h3>NFT · Ordinals · Solidity</h3>
-                  <p class="pc-desc">Solidity 컨트랙트와 NFT 민팅, 비트코인 Ordinals 인스크립션, 지갑 연동 프론트엔드까지 한 흐름으로 만듭니다.</p>
-                  <ul class="chips"><li>Solidity</li><li>React</li><li>Next.js</li><li>Ordinals</li></ul>
-                  <div class="pc-foot mono"><span>Click to flip</span><span>Z 4000</span></div>
-                  <span class="glare" aria-hidden="true"></span>
-                </div>
-                <div class="face back">
-                  <div class="pc-top mono"><span class="code">W3-05</span><span>Reverse</span></div>
-                  <h4>핵심 과제</h4>
-                  <ul>
-                    <li>컨트랙트 작성과 테스트</li>
-                    <li>NFT 민팅 플로우</li>
-                    <li>Ordinals 인스크립션 처리</li>
-                    <li>지갑 연동 프론트엔드</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article class="pcard" tabindex="0" role="button" aria-pressed="false" aria-label="DEFI-06 Uniswap V4 LP 백테스터, 눌러서 뒤집기">
-            <div class="pcard-tilt" data-tilt data-cursor="FLIP">
-              <div class="pcard-flip">
-                <div class="face front">
-                  <div class="pc-top mono"><span class="code">DEFI-06</span><span>6 / 6</span></div>
-                  <p class="pc-domain">DeFi · 리서치</p>
-                  <h3>Uniswap V4 LP 백테스터</h3>
-                  <p class="pc-desc">집중 유동성 LP 전략을 과거 데이터로 검증하는 Python 백테스팅 프레임워크입니다.</p>
-                  <ul class="chips"><li>Python</li><li>Uniswap V4</li><li>DeFi</li></ul>
+                  <div class="pc-top mono"><span class="code">W3-06</span><span>6 / 6</span></div>
+                  <p class="pc-domain">블록체인 · 분석 · 컨트랙트</p>
+                  <h3>온체인 분석 · 스마트 컨트랙트</h3>
+                  <p class="pc-desc">트랜잭션 그래프로 자금 흐름을 추적해 보고서로 정리하고, Solidity 컨트랙트와 지갑 연동 프론트엔드를 만듭니다.</p>
+                  <ul class="chips"><li>Python</li><li>Node.js</li><li>Solidity</li><li>Web3</li></ul>
                   <div class="pc-foot mono"><span>Click to flip</span><span>Z 5000</span></div>
                   <span class="glare" aria-hidden="true"></span>
                 </div>
                 <div class="face back">
-                  <div class="pc-top mono"><span class="code">DEFI-06</span><span>Reverse</span></div>
+                  <div class="pc-top mono"><span class="code">W3-06</span><span>Reverse</span></div>
                   <h4>핵심 과제</h4>
                   <ul>
-                    <li>가격 구간별 유동성 배치 시뮬레이션</li>
-                    <li>수수료 수익과 비영구적 손실 계산</li>
-                    <li>리밸런싱 전략 비교</li>
-                    <li>결과 리포트 자동화</li>
+                    <li>주소 군집화와 자금 흐름 추적</li>
+                    <li>제3자가 검증할 수 있는 근거 자료 정리</li>
+                    <li>컨트랙트 작성과 테스트</li>
+                    <li>지갑 연동 프론트엔드</li>
                   </ul>
                 </div>
               </div>
@@ -604,7 +608,7 @@ body.has-cursor,body.has-cursor *{cursor:none!important}
     <header class="head-float">
       <p class="eyebrow mono"><span class="rev">DWG 03</span>SHEET 03 / 04 · 스택</p>
       <h2 class="h-display">Stack <span class="o-text">/ L1–L5</span></h2>
-      <p class="lede">분해도입니다. 스크롤하면 층이 벌어지면서 아래 인프라부터 한 층씩 올라옵니다.</p>
+      <p class="lede">분해도입니다. 스크롤하면 층이 벌어지면서 서버부터 고객 현장까지 한 층씩 올라옵니다.</p>
     </header>
 
     <div class="layers" id="layers">
@@ -614,10 +618,10 @@ body.has-cursor,body.has-cursor *{cursor:none!important}
           <div class="layer" data-i="1" data-cursor="L2"><div class="l-top"><span class="l-no">L2</span><span class="mono">Data</span></div><div><strong>데이터</strong><span class="l-tech">MariaDB · MySQL</span></div></div>
           <div class="layer" data-i="2" data-cursor="L3"><div class="l-top"><span class="l-no">L3</span><span class="mono">Application</span></div><div><strong>애플리케이션</strong><span class="l-tech">PHP · Java/Spring · Node.js · Python</span></div></div>
           <div class="layer" data-i="3" data-cursor="L4"><div class="l-top"><span class="l-no">L4</span><span class="mono">Interface</span></div><div><strong>프론트엔드</strong><span class="l-tech">React · Next.js</span></div></div>
-          <div class="layer" data-i="4" data-cursor="L5"><div class="l-top"><span class="l-no">L5</span><span class="mono">Ledger</span></div><div><strong>체인</strong><span class="l-tech">Bitcoin Core · Solidity · Ordinals · Web3</span></div></div>
+          <div class="layer" data-i="4" data-cursor="L5"><div class="l-top"><span class="l-no">L5</span><span class="mono">Field</span></div><div><strong>현장</strong><span class="l-tech">폐쇄망 배포 · EPKI · 개인정보 영향평가</span></div></div>
         </div>
         <ol class="legend" id="legend" aria-label="레이어 목록">
-          <li data-i="4"><button type="button" data-cursor="LIFT"><span class="ln">L5</span><span class="lk">체인</span><span class="lt">Bitcoin Core · Solidity · Ordinals · Web3</span></button></li>
+          <li data-i="4"><button type="button" data-cursor="LIFT"><span class="ln">L5</span><span class="lk">현장</span><span class="lt">폐쇄망 배포 · EPKI · 개인정보 영향평가</span></button></li>
           <li data-i="3"><button type="button" data-cursor="LIFT"><span class="ln">L4</span><span class="lk">프론트엔드</span><span class="lt">React · Next.js</span></button></li>
           <li data-i="2"><button type="button" data-cursor="LIFT"><span class="ln">L3</span><span class="lk">애플리케이션</span><span class="lt">PHP · Java/Spring · Node.js · Python</span></button></li>
           <li data-i="1"><button type="button" data-cursor="LIFT"><span class="ln">L2</span><span class="lk">데이터</span><span class="lt">MariaDB · MySQL</span></button></li>
@@ -651,7 +655,7 @@ body.has-cursor,body.has-cursor *{cursor:none!important}
       <div class="ex-stage">
         <h2 class="extrude" id="extrude"><span class="ex-line">Let’s build</span><span class="ex-line">it deeper</span></h2>
       </div>
-      <p class="lede">새 프로젝트, 레거시 이전, 노드 운영이나 온체인 분석 의뢰까지. 어느 층에서 막혔는지 알려주시면 그 층부터 같이 봅니다.</p>
+      <p class="lede">FDE · SI · DevOps 포지션 제안과 현장 배포, 레거시 이전, 서버 운영 의뢰를 받습니다. 어느 층에서 막혔는지 알려주시면 그 층부터 같이 봅니다.</p>
 
       <div class="mail">
         <span class="mono">Mail</span>
@@ -661,9 +665,9 @@ body.has-cursor,body.has-cursor *{cursor:none!important}
       </div>
 
       <div class="avail">
-        <div><span class="mono">Freelance</span><h3>블록체인 개발</h3><p>노드 운영, 스마트 컨트랙트, 온체인 분석</p></div>
-        <div><span class="mono">SI</span><h3>공공 · 의료 백엔드</h3><p>폐쇄망 배포, EPKI 연동, 레거시 이전</p></div>
-        <div><span class="mono">Ops</span><h3>서버 이전 · 운영</h3><p>CentOS에서 Rocky Linux로, MariaDB 운영까지</p></div>
+        <div><span class="mono">Deploy</span><h3>현장 배포 · SI</h3><p>공공 · 의료 시스템 설치, 폐쇄망 배포, EPKI 연동</p></div>
+        <div><span class="mono">Ops</span><h3>서버 구축 · 운영</h3><p>리눅스 서버와 MariaDB 운영, 레거시 이전</p></div>
+        <div><span class="mono">Chain</span><h3>블록체인</h3><p>노드 운영, 스마트 컨트랙트, 온체인 분석</p></div>
       </div>
 
       <button class="next" type="button" data-go="index" data-cursor="BACK">
@@ -675,7 +679,7 @@ body.has-cursor,body.has-cursor *{cursor:none!important}
 </main>
 
 <aside class="tb" aria-label="도면 표제란">
-  <p class="tb-title">Systems in Depth <span>REV.2026.10</span></p>
+  <p class="tb-title">Systems in Depth <span>REV.2026.11</span></p>
   <dl>
     <dt>Sheet</dt><dd id="tb-sheet">01 / 04 · INDEX</dd>
     <dt class="opt">Zone</dt><dd class="opt" id="tb-zone">—</dd>
@@ -756,19 +760,27 @@ const GL=(function(){
     for(let i=nS+nR;i<N;i++){const u=r()*2-1,th=r()*Math.PI*2,s=Math.sqrt(1-u*u),R=Math.pow(r(),2.2)*1.2;a[i*3]=s*Math.cos(th)*R;a[i*3+1]=u*R;a[i*3+2]=s*Math.sin(th)*R;}
     return a;
   }
-  function chain(){
-    const a=new Float32Array(N*3),r=mulberry(29),h=.8;
-    const nE=Math.floor(N*.5),nF=Math.floor(N*.22),nL=Math.floor(N*.16);
+  function racks(){
+    const a=new Float32Array(N*3),r=mulberry(29),hx=1.05,hy=.24,hz=.75,U=[-.62,0,.62];
+    const nE=Math.floor(N*.46),nP=Math.floor(N*.2),nD=Math.floor(N*.06),nL=Math.floor(N*.14);
     const ctr=k=>[(k%2===0?-1:1)*1.05,Math.sin(k*1.3)*.25,-k*SP];
+    const rotOf=k=>k%2===0?.35:-.35;
     const put=(i,x,y,z,c,rot)=>{const cs=Math.cos(rot),sn=Math.sin(rot);a[i*3]=c[0]+x*cs-z*sn;a[i*3+1]=c[1]+y;a[i*3+2]=c[2]+x*sn+z*cs;};
-    for(let i=0;i<nE;i++){const k=Math.floor(r()*NC),c=ctr(k),e=Math.floor(r()*12),t=(r()*2-1)*h,s1=(e&1)?h:-h,s2=(e&2)?h:-h,ax=e>>2;let x,y,z;
-      if(ax===0){x=t;y=s1;z=s2;}else if(ax===1){x=s1;y=t;z=s2;}else{x=s1;y=s2;z=t;}
-      put(i,x,y,z,c,k*.5+.3);}
-    for(let i=nE;i<nE+nF;i++){const k=Math.floor(r()*NC),c=ctr(k),f=Math.floor(r()*6),u=(r()*2-1)*h,v=(r()*2-1)*h,s=(f&1)?h:-h,ax=f>>1;let x,y,z;
-      if(ax===0){x=s;y=u;z=v;}else if(ax===1){x=u;y=s;z=v;}else{x=u;y=v;z=s;}
-      put(i,x,y,z,c,k*.5+.3);}
-    for(let i=nE+nF;i<nE+nF+nL;i++){const k=Math.floor(r()*(NC-1)),c0=ctr(k),c1=ctr(k+1),t=r(),off=r()<.5?-.22:.22;a[i*3]=lerp(c0[0],c1[0],t);a[i*3+1]=lerp(c0[1],c1[1],t)+off;a[i*3+2]=lerp(c0[2],c1[2],t);}
-    for(let i=nE+nF+nL;i<N;i++){const th=r()*Math.PI*2,R=3+r()*4;a[i*3]=Math.cos(th)*R;a[i*3+1]=Math.sin(th)*R*.7;a[i*3+2]=8-r()*((NC-1)*SP+16);}
+    // 1U chassis wireframes, three per rack
+    for(let i=0;i<nE;i++){const k=Math.floor(r()*NC),c=ctr(k),u=U[Math.floor(r()*3)],q=r(),s1=r()<.5?-1:1,s2=r()<.5?-1:1,t=r()*2-1;let x,y,z;
+      if(q<.5){x=t*hx;y=s1*hy;z=s2*hz;}else if(q<.85){x=s1*hx;y=s2*hy;z=t*hz;}else{x=s1*hx;y=t*hy;z=s2*hz;}
+      put(i,x,y+u,z,c,rotOf(k));}
+    // front panel vent lines
+    for(let i=nE;i<nE+nP;i++){const k=Math.floor(r()*NC),c=ctr(k),u=U[Math.floor(r()*3)],ln=Math.floor(r()*3)-1;
+      put(i,-hx*.92+r()*hx*1.2,u+ln*hy*.45,hz,c,rotOf(k));}
+    // status LEDs
+    for(let i=nE+nP;i<nE+nP+nD;i++){const k=Math.floor(r()*NC),c=ctr(k),u=U[Math.floor(r()*3)],led=Math.floor(r()*3);
+      put(i,hx*.55+led*.15+(r()-.5)*.03,u+(r()-.5)*.03,hz+.01,c,rotOf(k));}
+    // network cables sagging between racks
+    for(let i=nE+nP+nD;i<nE+nP+nD+nL;i++){const k=Math.floor(r()*(NC-1)),c0=ctr(k),c1=ctr(k+1),t=r(),off=r()<.5?-.15:.15;
+      a[i*3]=lerp(c0[0],c1[0],t);a[i*3+1]=lerp(c0[1],c1[1],t)-.95-Math.sin(t*Math.PI)*.25+off*.3;a[i*3+2]=lerp(c0[2],c1[2],t)+off;}
+    // dust
+    for(let i=nE+nP+nD+nL;i<N;i++){const th=r()*Math.PI*2,R=3+r()*4;a[i*3]=Math.cos(th)*R;a[i*3+1]=Math.sin(th)*R*.7;a[i*3+2]=8-r()*((NC-1)*SP+16);}
     return a;
   }
   function layers(){
@@ -789,7 +801,7 @@ const GL=(function(){
     for(let i=nT+nV;i<N;i++){const u=r()*2-1,th=r()*Math.PI*2,s=Math.sqrt(1-u*u),Rr=3.6+r()*2.4;a[i*3]=s*Math.cos(th)*Rr;a[i*3+1]=u*Rr;a[i*3+2]=s*Math.sin(th)*Rr*.5-1;}
     return a;
   }
-  const SH={index:core(),work:chain(),stack:layers(),contact:portal()};
+  const SH={index:core(),work:racks(),stack:layers(),contact:portal()};
 
   /* ---- geometry ---- */
   const geo=new T3.BufferGeometry();
@@ -1048,9 +1060,9 @@ legendItems.forEach(li=>{const i=+li.dataset.i,b=$('button',li);
 });
 
 const sphere=$('#sphere'),sphereWorld=$('#sphere-world');
-const TAGS=[['PHP',1],['Java',1],['Node.js',1],['Python',1],['Solidity',1],['Bitcoin Core',1],['MariaDB',1],['Linux',1],
-  ['Spring'],['React'],['Next.js'],['MySQL'],['Apache'],['CentOS'],['Rocky Linux'],['Ubuntu'],['Gnuboard'],['Ordinals'],['NFT'],['Web3'],['EPKI'],['Uniswap V4'],
-  ['폐쇄망',0,1],['온체인 포렌식',0,1],['레거시 이전',0,1],['서버 운영',0,1],['개인정보 영향평가',0,1],['백테스팅',0,1]];
+const TAGS=[['Linux',1],['Rocky Linux',1],['MariaDB',1],['PHP',1],['Java',1],['Spring',1],['폐쇄망',1,1],['레거시 이전',1,1],['서버 운영',1,1],
+  ['CentOS'],['Ubuntu'],['Apache'],['MySQL'],['Node.js'],['Python'],['React'],['Next.js'],['Gnuboard'],['EPKI'],['개인정보 영향평가',0,1],['AI 툴링',0,1],
+  ['Bitcoin Core'],['Solidity'],['Web3'],['Ordinals'],['온체인 포렌식',0,1]];
 sphere.setAttribute('aria-label','기술 태그 구체: '+TAGS.map(t=>t[0]).join(', '));
 const SPH={pts:[],R:200,vx:0,vy:.3,drag:false,lx:0,ly:0,ax:0,ay:0,hover:false,cx:0,cy:0};
 {const g=Math.PI*(3-Math.sqrt(5)),n=TAGS.length;
@@ -1193,9 +1205,10 @@ function workFrame(){
   if(RM)return;
   const camZ=W.p*(NC-1)*D,nar=S.vw<700,xAmp=nar?S.vw*.05:Math.min(S.vw*.2,280);
   const intro=S.vw>=900?clamp(1-W.p*(NC-1)*1.2,0,1)*Math.min(S.vw*.18,240):0; // keep card 01 clear of the floating head
+  const maxX=S.vw>=900?Math.max(0,S.vw/2-190-Math.min(540,S.vw*.84)/2):Infinity; // and clear of the depth gauge
   for(const c of pcs){
     const i=c.i,z=-i*D+camZ,near=1-Math.min(Math.abs(z)/D,1),side=i%2===0?1:-1;
-    const x=side*xAmp*(1-near*.75)+intro,y=Math.sin(i*1.9)*36*(1-near),ry=-side*18*(1-near*.8);
+    const x=Math.min(side*xAmp*(1-near*.75)+intro,maxX),y=Math.sin(i*1.9)*36*(1-near),ry=-side*18*(1-near*.8);
     const o=clamp(z>0?1-z/420:1+z/(2.6*D),z>0?0:.12,1);
     const vis=o>.01&&z<620;
     c.el.style.transform=`translate(-50%,-50%) translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,${z.toFixed(1)}px) rotateY(${ry.toFixed(2)}deg)`;
