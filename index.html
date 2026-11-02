@@ -985,7 +985,7 @@ void main(){
   if(d>0.5) discard;
   float a=1.0-smoothstep(0.08,0.5,d);
   vec3 col=mix(uInk,uAccent,clamp(vAccent+vGlow*0.9,0.0,1.0));
-  gl_FragColor=vec4(col,a*vAlpha*uOpacity*(0.5+vGlow*0.5));
+  gl_FragColor=vec4(col,a*vAlpha*uOpacity*(0.3+vGlow*0.7)); // resting particles fainter; cursor/shockwave still lights them fully
 }`;
   const U={uTime:{value:0},uMix:{value:0},uSize:{value:26},uPR:{value:1},uTwist:{value:0},uSpread:{value:0},uForce:{value:0},uRadius:{value:1.15},uVel:{value:0},uScatter:{value:0},uClickAge:{value:-1},
     uRayO:{value:new T3.Vector3()},uRayD:{value:new T3.Vector3(0,0,-1)},uClick:{value:new T3.Vector3(0,0,-999)},uInk:{value:new T3.Color()},uAccent:{value:new T3.Color()},uOpacity:{value:0}};
